@@ -1,0 +1,400 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line and area chart comparing arrivals and departures over selected months.",
+  "width": "container",
+  "height": 320,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "month": "Jan 2019",
+        "type": "Arrivals",
+        "millions": 2.22,
+        "date": "2019-01-01"
+      },
+      {
+        "month": "Jan 2019",
+        "type": "Departures",
+        "millions": 1.91,
+        "date": "2019-01-01"
+      },
+      {
+        "month": "Jul 2019",
+        "type": "Arrivals",
+        "millions": 2.01,
+        "date": "2019-07-01"
+      },
+      {
+        "month": "Jul 2019",
+        "type": "Departures",
+        "millions": 1.76,
+        "date": "2019-07-01"
+      },
+      {
+        "month": "Dec 2019",
+        "type": "Arrivals",
+        "millions": 1.89,
+        "date": "2019-12-01"
+      },
+      {
+        "month": "Dec 2019",
+        "type": "Departures",
+        "millions": 2.24,
+        "date": "2019-12-01"
+      },
+      {
+        "month": "Apr 2020",
+        "type": "Arrivals",
+        "millions": 0.02,
+        "date": "2020-04-01"
+      },
+      {
+        "month": "Apr 2020",
+        "type": "Departures",
+        "millions": 0.06,
+        "date": "2020-04-01"
+      },
+      {
+        "month": "Dec 2020",
+        "type": "Arrivals",
+        "millions": 0.03,
+        "date": "2020-12-01"
+      },
+      {
+        "month": "Dec 2020",
+        "type": "Departures",
+        "millions": 0.05,
+        "date": "2020-12-01"
+      },
+      {
+        "month": "Dec 2021",
+        "type": "Arrivals",
+        "millions": 0.2,
+        "date": "2021-12-01"
+      },
+      {
+        "month": "Dec 2021",
+        "type": "Departures",
+        "millions": 0.23,
+        "date": "2021-12-01"
+      },
+      {
+        "month": "Jun 2022",
+        "type": "Arrivals",
+        "millions": 0.73,
+        "date": "2022-06-01"
+      },
+      {
+        "month": "Jun 2022",
+        "type": "Departures",
+        "millions": 0.88,
+        "date": "2022-06-01"
+      },
+      {
+        "month": "Dec 2022",
+        "type": "Arrivals",
+        "millions": 1.26,
+        "date": "2022-12-01"
+      },
+      {
+        "month": "Dec 2022",
+        "type": "Departures",
+        "millions": 1.52,
+        "date": "2022-12-01"
+      },
+      {
+        "month": "Jun 2023",
+        "type": "Arrivals",
+        "millions": 1.36,
+        "date": "2023-06-01"
+      },
+      {
+        "month": "Jun 2023",
+        "type": "Departures",
+        "millions": 1.56,
+        "date": "2023-06-01"
+      },
+      {
+        "month": "Dec 2023",
+        "type": "Arrivals",
+        "millions": 1.7,
+        "date": "2023-12-01"
+      },
+      {
+        "month": "Dec 2023",
+        "type": "Departures",
+        "millions": 2.03,
+        "date": "2023-12-01"
+      },
+      {
+        "month": "Jun 2024",
+        "type": "Arrivals",
+        "millions": 1.53,
+        "date": "2024-06-01"
+      },
+      {
+        "month": "Jun 2024",
+        "type": "Departures",
+        "millions": 1.76,
+        "date": "2024-06-01"
+      },
+      {
+        "month": "Dec 2024",
+        "type": "Arrivals",
+        "millions": 1.85,
+        "date": "2024-12-01"
+      },
+      {
+        "month": "Dec 2024",
+        "type": "Departures",
+        "millions": 2.26,
+        "date": "2024-12-01"
+      },
+      {
+        "month": "Jun 2025",
+        "type": "Arrivals",
+        "millions": 1.62,
+        "date": "2025-06-01"
+      },
+      {
+        "month": "Jun 2025",
+        "type": "Departures",
+        "millions": 1.81,
+        "date": "2025-06-01"
+      },
+      {
+        "month": "Dec 2025",
+        "type": "Arrivals",
+        "millions": 2.0,
+        "date": "2025-12-01"
+      },
+      {
+        "month": "Dec 2025",
+        "type": "Departures",
+        "millions": 2.45,
+        "date": "2025-12-01"
+      },
+      {
+        "month": "Mar 2026",
+        "type": "Arrivals",
+        "millions": 1.83,
+        "date": "2026-03-01"
+      },
+      {
+        "month": "Mar 2026",
+        "type": "Departures",
+        "millions": 1.88,
+        "date": "2026-03-01"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "movementType",
+      "value": "Both",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Both",
+          "Arrivals",
+          "Departures"
+        ],
+        "name": "Show movement "
+      }
+    }
+  ],
+  "config": {
+    "background": "#fffdf8",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "interactivity": "Dropdown filters arrivals/departures; hover reveals values; annotation explains April 2020."
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "movementType == 'Both' || datum.type == movementType"
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "opacity": 0.48,
+        "line": {
+          "strokeWidth": 2
+        },
+        "point": {
+          "size": 55
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": null,
+          "axis": {}
+        },
+        "y": {
+          "field": "millions",
+          "type": "quantitative",
+          "title": "Border crossings (millions)",
+          "axis": {
+            "tickCount": 5
+          }
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "title": "Movement type",
+          "scale": {
+            "range": [
+              "#0077b6",
+              "#f77f00"
+            ]
+          }
+        },
+        "opacity": {
+          "value": 0.7
+        },
+        "tooltip": [
+          {
+            "field": "month"
+          },
+          {
+            "field": "type"
+          },
+          {
+            "field": "millions",
+            "title": "Millions"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2020-04-01",
+            "event": "April 2020 border shock"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#e85d75",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "strokeWidth": 2.2
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2020-04-01",
+            "millions": 2.55,
+            "event": "April 2020: border restrictions made travel collapse"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#b21e35"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "millions",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "event"
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Arrivals and departures moved together again",
+    "subtitle": "Use the dropdown to show arrivals, departures, or both. Hover for monthly values.",
+    "anchor": "start"
+  }
+}

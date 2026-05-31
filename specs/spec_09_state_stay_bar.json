@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bar chart showing March 2026 visitor arrivals by intended state or territory of stay.",
+  "width": "container",
+  "height": 310,
+  "background": "transparent",
+  "data": {
+    "url": "data/state_stay_mar2026.csv"
+  },
+  "params": [
+    {
+      "name": "growthOnly",
+      "value": false,
+      "bind": {
+        "input": "checkbox",
+        "name": "Show change % instead of arrivals "
+      }
+    },
+    {
+      "name": "minStateVisitors",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 320000,
+        "step": 10000,
+        "name": "Hide states below visitors "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.mar_2026 >= minStateVisitors"
+    },
+    {
+      "calculate": "growthOnly ? datum.change_percent : datum.mar_2026",
+      "as": "shown_value"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 5,
+    "color": "#0077b6",
+    "opacity": 0.92
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {}
+    },
+    "x": {
+      "field": "shown_value",
+      "type": "quantitative",
+      "title": "Visitors, or change % when box is ticked",
+      "axis": {
+        "tickCount": 5
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state"
+      },
+      {
+        "field": "mar_2026",
+        "title": "Mar 2026 visitors"
+      },
+      {
+        "field": "change_percent",
+        "title": "Change from Mar 2025 (%)"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "style_note": "Restyled to match a warmer travel-guide page: soft paper background, muted axes, lighter gridlines, rounded marks, and consistent ocean/rust/sage palette.",
+    "interactivity": "Toggle the checkbox to switch the meaning of the bars, and use the slider to remove smaller states. Hover for details."
+  }
+}

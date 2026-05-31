@@ -1,0 +1,223 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dot plot showing how close each source country is to its March 2019 visitor level.",
+  "width": "container",
+  "height": 330,
+  "background": "transparent",
+  "data": {
+    "url": "data/source_countries_mar.csv"
+  },
+  "transform": [
+    {
+      "pivot": "year",
+      "value": "visitors",
+      "groupby": [
+        "country"
+      ]
+    },
+    {
+      "calculate": "datum['2026'] / datum['2019'] * 100",
+      "as": "recovery_percent"
+    },
+    {
+      "filter": "!onlyRecovered || datum.recovery_percent >= 100"
+    },
+    {
+      "filter": "datum.recovery_percent >= minRecovery"
+    }
+  ],
+  "params": [
+    {
+      "name": "onlyRecovered",
+      "value": false,
+      "bind": {
+        "input": "checkbox",
+        "name": "Only show countries at/above 2019 "
+      }
+    },
+    {
+      "name": "minRecovery",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 140,
+        "step": 10,
+        "name": "Minimum recovery (% of 2019) "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          5,
+          5
+        ],
+        "color": "#b8b3aa"
+      },
+      "encoding": {
+        "x": {
+          "datum": 100,
+          "type": "quantitative",
+          "axis": {
+            "tickCount": 5
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 190,
+        "opacity": 0.9,
+        "color": "#f77f00",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "y": {
+          "field": "country",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {}
+        },
+        "x": {
+          "field": "recovery_percent",
+          "type": "quantitative",
+          "title": "March 2026 as % of March 2019",
+          "axis": {
+            "tickCount": 5
+          }
+        },
+        "tooltip": [
+          {
+            "field": "country"
+          },
+          {
+            "field": "2019",
+            "title": "March 2019 visitors"
+          },
+          {
+            "field": "2026",
+            "title": "March 2026 visitors"
+          },
+          {
+            "field": "recovery_percent",
+            "title": "% of 2019",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 100,
+            "y": "United Kingdom",
+            "label": "2019 level"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 7,
+        "dy": -8,
+        "fontWeight": "bold",
+        "color": "#555f6d",
+        "font": "Arial"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": {
+            "tickCount": 5
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "nominal",
+          "axis": {}
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "style_note": "Restyled to match a warmer travel-guide page: soft paper background, muted axes, lighter gridlines, rounded marks, and consistent ocean/rust/sage palette.",
+    "interactivity": "Use the checkbox and recovery slider to narrow the countries. Hover for 2019 vs 2026 values."
+  }
+}

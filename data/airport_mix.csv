@@ -1,0 +1,15 @@
+airport,passenger_type,passengers_million
+Sydney Airport,Domestic,25.094541
+Sydney Airport,International,16.751321
+Melbourne Airport,Domestic,23.998868
+Melbourne Airport,International,11.963866
+Brisbane Airport,Domestic,17.322630
+Brisbane Airport,International,6.504061
+Perth Airport,Domestic,9.070312
+Perth Airport,International,5.130190
+Adelaide Airport,Domestic,7.384087
+Adelaide Airport,International,1.029690
+Gold Coast Airport,Domestic,5.734010
+Gold Coast Airport,International,0.624270
+Cairns Airport,Domestic,4.042523
+Cairns Airport,International,0.664953

@@ -1,0 +1,234 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grouped dot chart comparing domestic and international passenger volumes by airport.",
+  "width": "container",
+  "height": 330,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "airport": "Sydney Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 25.094541
+      },
+      {
+        "airport": "Sydney Airport",
+        "passenger_type": "International",
+        "passengers_million": 16.751321
+      },
+      {
+        "airport": "Melbourne Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 23.998868
+      },
+      {
+        "airport": "Melbourne Airport",
+        "passenger_type": "International",
+        "passengers_million": 11.963866
+      },
+      {
+        "airport": "Brisbane Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 17.32263
+      },
+      {
+        "airport": "Brisbane Airport",
+        "passenger_type": "International",
+        "passengers_million": 6.504061
+      },
+      {
+        "airport": "Perth Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 9.070312
+      },
+      {
+        "airport": "Perth Airport",
+        "passenger_type": "International",
+        "passengers_million": 5.13019
+      },
+      {
+        "airport": "Adelaide Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 7.384087
+      },
+      {
+        "airport": "Adelaide Airport",
+        "passenger_type": "International",
+        "passengers_million": 1.02969
+      },
+      {
+        "airport": "Gold Coast Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 5.73401
+      },
+      {
+        "airport": "Gold Coast Airport",
+        "passenger_type": "International",
+        "passengers_million": 0.62427
+      },
+      {
+        "airport": "Cairns Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 4.042523
+      },
+      {
+        "airport": "Cairns Airport",
+        "passenger_type": "International",
+        "passengers_million": 0.664953
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "minAirportTraffic",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 30,
+        "step": 2,
+        "name": "Hide dots below passengers (m) "
+      }
+    },
+    {
+      "name": "passengerPick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "passenger_type"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 150,
+    "opacity": 0.9,
+    "stroke": "transparent",
+    "strokeWidth": 1.4
+  },
+  "encoding": {
+    "y": {
+      "field": "airport",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {}
+    },
+    "x": {
+      "field": "passengers_million",
+      "type": "quantitative",
+      "title": "Passengers (million)",
+      "axis": {
+        "tickCount": 5
+      }
+    },
+    "color": {
+      "field": "passenger_type",
+      "type": "nominal",
+      "title": "Click legend to focus",
+      "scale": {
+        "range": [
+          "#0077b6",
+          "#f77f00"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "passengerPick",
+        "value": 0.9
+      },
+      "value": 0.16
+    },
+    "tooltip": [
+      {
+        "field": "airport"
+      },
+      {
+        "field": "passenger_type"
+      },
+      {
+        "field": "passengers_million",
+        "title": "Passengers (m)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "style_note": "Restyled to match a warmer travel-guide page: soft paper background, muted axes, lighter gridlines, rounded marks, and consistent ocean/rust/sage palette.",
+    "interactivity": "Move the slider to remove smaller traffic dots. Click the legend to focus domestic or international traffic. Hover for values."
+  },
+  "transform": [
+    {
+      "filter": "datum.passengers_million >= minAirportTraffic"
+    }
+  ]
+}

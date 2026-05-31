@@ -1,0 +1,455 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Ultra-safe recovery line chart with inline data and hover tooltips.",
+  "width": 720,
+  "height": 340,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "month": "Jan 2022",
+        "recovery_percent": 8.3,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Feb 2022",
+        "recovery_percent": 9.8,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Mar 2022",
+        "recovery_percent": 20.4,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Apr 2022",
+        "recovery_percent": 33.6,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "May 2022",
+        "recovery_percent": 34.6,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jun 2022",
+        "recovery_percent": 41.7,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jul 2022",
+        "recovery_percent": 41.2,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Aug 2022",
+        "recovery_percent": 44.2,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Sep 2022",
+        "recovery_percent": 53.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Oct 2022",
+        "recovery_percent": 55.6,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Nov 2022",
+        "recovery_percent": 61.9,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Dec 2022",
+        "recovery_percent": 60.2,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jan 2023",
+        "recovery_percent": 56.4,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Feb 2023",
+        "recovery_percent": 64.8,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Mar 2023",
+        "recovery_percent": 73.3,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Apr 2023",
+        "recovery_percent": 77.8,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "May 2023",
+        "recovery_percent": 76.7,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jun 2023",
+        "recovery_percent": 82.1,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jul 2023",
+        "recovery_percent": 79.1,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Aug 2023",
+        "recovery_percent": 76.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Sep 2023",
+        "recovery_percent": 84.1,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Oct 2023",
+        "recovery_percent": 78.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Nov 2023",
+        "recovery_percent": 81.4,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Dec 2023",
+        "recovery_percent": 81.4,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jan 2024",
+        "recovery_percent": 82.6,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Feb 2024",
+        "recovery_percent": 92.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Mar 2024",
+        "recovery_percent": 91.0,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Apr 2024",
+        "recovery_percent": 84.7,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "May 2024",
+        "recovery_percent": 89.9,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jun 2024",
+        "recovery_percent": 89.0,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jul 2024",
+        "recovery_percent": 83.4,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Aug 2024",
+        "recovery_percent": 83.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Sep 2024",
+        "recovery_percent": 90.8,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Oct 2024",
+        "recovery_percent": 87.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Nov 2024",
+        "recovery_percent": 85.2,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Dec 2024",
+        "recovery_percent": 87.7,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jan 2025",
+        "recovery_percent": 97.1,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Feb 2025",
+        "recovery_percent": 85.0,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Mar 2025",
+        "recovery_percent": 91.0,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Apr 2025",
+        "recovery_percent": 91.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "May 2025",
+        "recovery_percent": 91.5,
+        "baseline_2019": 100.0
+      },
+      {
+        "month": "Jun 2025",
+        "recovery_percent": 94.6,
+        "baseline_2019": 100.0
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#b8b3aa",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "datum": 100,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#f77f00",
+        "strokeWidth": 3.5,
+        "point": {
+          "filled": true,
+          "size": 40,
+          "color": "#0077b6"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": null,
+          "title": null,
+          "axis": {
+            "labelAngle": -45,
+            "labelOverlap": "greedy",
+            "labelColor": "#4f5b56",
+            "labelFontSize": 11
+          }
+        },
+        "y": {
+          "field": "recovery_percent",
+          "type": "quantitative",
+          "title": "Visitor arrivals (% of 2019 level)",
+          "scale": {
+            "domain": [
+              0,
+              110
+            ]
+          },
+          "axis": {
+            "grid": true,
+            "gridColor": "#eadfce",
+            "gridOpacity": 0.65,
+            "labelColor": "#4f5b56",
+            "titleColor": "#4f5b56"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month",
+            "type": "nominal",
+            "title": "Month"
+          },
+          {
+            "field": "recovery_percent",
+            "type": "quantitative",
+            "title": "Recovery vs 2019",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": null,
+          "title": null,
+          "axis": {
+            "labelAngle": -45,
+            "labelOverlap": "greedy",
+            "labelColor": "#4f5b56",
+            "labelFontSize": 11
+          }
+        },
+        "y": {
+          "field": "recovery_percent",
+          "type": "quantitative",
+          "title": "Visitor arrivals (% of 2019 level)",
+          "scale": {
+            "domain": [
+              0,
+              110
+            ]
+          },
+          "axis": {
+            "grid": true,
+            "gridColor": "#eadfce",
+            "gridOpacity": 0.65,
+            "labelColor": "#4f5b56",
+            "titleColor": "#4f5b56"
+          }
+        },
+        "size": {
+          "value": 40
+        },
+        "color": {
+          "value": "#0077b6"
+        },
+        "tooltip": [
+          {
+            "field": "month",
+            "type": "nominal",
+            "title": "Month"
+          },
+          {
+            "field": "recovery_percent",
+            "type": "quantitative",
+            "title": "Recovery vs 2019",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "month": "Feb 2024",
+            "recovery_percent": 103,
+            "label": "Almost back to the old 2019 level"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "dy": -8,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#0077b6"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": null
+        },
+        "y": {
+          "field": "recovery_percent",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Visitor arrivals compared with the 2019 level",
+    "subtitle": "Hover to read exact values. The dashed line marks full recovery against the 2019 benchmark.",
+    "anchor": "start",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "color": "#23312d",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#6f6558"
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "tickSize": 4
+    },
+    "legend": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "titleColor": "#273444",
+      "symbolSize": 120,
+      "padding": 6
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "interactivity": "Hover tooltips show exact recovery values. The dashed reference line marks the 2019 level."
+  }
+}

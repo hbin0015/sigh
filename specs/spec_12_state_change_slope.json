@@ -1,0 +1,187 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope chart comparing intended state or territory of stay in March 2019 and March 2026.",
+  "width": "container",
+  "height": 360,
+  "background": "transparent",
+  "data": {
+    "url": "data/state_stay_mar2026.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "mar_2019",
+        "mar_2026"
+      ],
+      "as": [
+        "year_key",
+        "visitors"
+      ]
+    },
+    {
+      "calculate": "datum.year_key == 'mar_2019' ? '2019' : '2026'",
+      "as": "year"
+    }
+  ],
+  "params": [
+    {
+      "name": "stateHover",
+      "select": {
+        "type": "point",
+        "fields": [
+          "state"
+        ],
+        "on": "pointerover",
+        "clear": "pointerout"
+      }
+    },
+    {
+      "name": "statePick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "state"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {
+      "size": 105,
+      "filled": true
+    },
+    "strokeWidth": 2.5
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "March comparison",
+      "axis": {
+        "labelAngle": -20,
+        "labelLimit": 110
+      }
+    },
+    "y": {
+      "field": "visitors",
+      "type": "quantitative",
+      "title": "Visitors by intended stay",
+      "axis": {
+        "tickCount": 5
+      }
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "title": "Click state",
+      "scale": {
+        "range": [
+          "#0077b6",
+          "#f77f00",
+          "#00a896",
+          "#e85d75",
+          "#9b5de5",
+          "#fcbf49",
+          "#ff595e",
+          "#2ec4b6"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "statePick",
+        "value": 0.95
+      },
+      "value": 0.16
+    },
+    "tooltip": [
+      {
+        "field": "state"
+      },
+      {
+        "field": "year"
+      },
+      {
+        "field": "visitors",
+        "title": "Visitors"
+      },
+      {
+        "field": "change_percent",
+        "title": "Change from Mar 2025 (%)"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6,
+      "columns": 5
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "style_note": "Restyled to match a warmer travel-guide page: soft paper background, muted axes, lighter gridlines, rounded marks, and consistent ocean/rust/sage palette.",
+    "interactivity": "Click the legend to isolate one state. Hover lines/points for exact values."
+  }
+}

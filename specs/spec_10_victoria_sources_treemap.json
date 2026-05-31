@@ -1,0 +1,153 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A compact stacked bar showing the mix of Victoria's top source countries in March 2026.",
+  "width": "container",
+  "height": 185,
+  "background": "transparent",
+  "data": {
+    "url": "data/vic_sources_mar.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "height": 60,
+    "cornerRadius": 4,
+    "cornerRadiusEnd": 6,
+    "opacity": 0.92
+  },
+  "encoding": {
+    "x": {
+      "aggregate": "sum",
+      "field": "visitors",
+      "type": "quantitative",
+      "title": "Visitors to Victoria, March 2026",
+      "axis": {
+        "tickCount": 5
+      }
+    },
+    "y": {
+      "value": 80,
+      "axis": {}
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "title": "Source country",
+      "scale": {
+        "range": [
+          "#0077b6",
+          "#f77f00",
+          "#00a896",
+          "#e85d75",
+          "#9b5de5",
+          "#fcbf49",
+          "#ff595e",
+          "#2ec4b6"
+        ]
+      }
+    },
+    "order": {
+      "field": "visitors",
+      "type": "quantitative",
+      "sort": "descending"
+    },
+    "tooltip": [
+      {
+        "field": "country"
+      },
+      {
+        "field": "visitors",
+        "title": "Visitors"
+      }
+    ],
+    "opacity": {
+      "condition": {
+        "param": "vicCountryPick",
+        "value": 0.95
+      },
+      "value": 0.22
+    }
+  },
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6,
+      "columns": 5
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "style_note": "Restyled to match a warmer travel-guide page: soft paper background, muted axes, lighter gridlines, rounded marks, and consistent ocean/rust/sage palette.",
+    "interactivity": "Click the legend to focus one source country in Victoria\u2019s visitor mix. Hover for exact visitors."
+  },
+  "params": [
+    {
+      "name": "vicCountryPick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "country"
+        ]
+      },
+      "bind": "legend"
+    }
+  ]
+}

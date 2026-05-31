@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is Australia’s tourism comeback actually back?</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="kicker">Australia tourism recovery · 2019 to 2026</div>
+      <h1>Is Australia’s tourism comeback actually back?</h1>
+      <p class="sub">Australia looks busy again, but recovery is uneven. This story follows the return of visitors, the airport gateways they pass through, the countries they come from, and whether spending has recovered in the same way as arrivals.</p>
+      <p class="hero-hint">Tip: hover charts for exact values, use the controls above some charts, and click legends where available.</p>
+    </div>
+    <aside class="stat-card">
+      <div class="big-number">12</div>
+      <strong>Vega-Lite idioms</strong>
+      <p class="note">Built as a scrollable visual story, not a spreadsheet dump.</p>
+    </aside>
+  </header>
+
+  <nav class="jump-nav" aria-label="Page sections">
+    <a href="#return">The return</a>
+    <a href="#money">Money</a>
+    <a href="#seasonality">Seasonality</a>
+    <a href="#gateways">Gateways</a>
+    <a href="#countries">Countries</a>
+    <a href="#ending">Is it back?</a>
+  </nav>
+
+  <section class="story-section intro-card">
+    <p><strong>Question:</strong> when people say tourism is “back”, what do they actually mean? Arrivals, departures, spending, airports and source countries do not recover at the same speed. That is why this page moves from the big national trend to smaller slices of the comeback.</p>
+  </section>
+
+  <section class="story-section" id="return">
+    <div class="section-title"><span>1</span><h2>The return was slow, then suddenly normal again</h2></div>
+    <p class="note">The first two idioms establish the baseline. A simple line shows how close arrivals are to the 2019 level, while the second chart explains why the pandemic drop was not a normal seasonal dip.</p>
+
+    <div class="chart-block">
+      <h3>Visitor arrivals compared with the 2019 level</h3>
+      <p class="why-care"><strong>Why this matters:</strong> this shows whether the recovery is real or only feels real. Being close to 100% means visitor arrivals are almost back to the pre-pandemic benchmark.</p>
+      <p>Hover over the line for exact months. The dashed line marks the old 2019 level.</p>
+      <div id="vis1" class="chart"></div>
+      <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics, Overseas Arrivals and Departures, Australia; recovery index reshaped for this visualisation.</p>
+    </div>
+
+    <div class="chart-block">
+      <h3>Arrivals and departures moved together again</h3>
+      <p class="why-care"><strong>Why this matters:</strong> the April 2020 collapse explains the whole story. Tourism did not just slow down; international movement almost stopped because of border restrictions, then rebuilt over several years.</p>
+      <p>Use the dropdown to show arrivals, departures, or both. Hover for exact values. The annotation marks the free fall in April 2020.</p>
+      <div id="vis2" class="chart"></div>
+      <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics, Overseas Arrivals and Departures, Australia, selected monthly arrivals and departures.</p>
+    </div>
+  </section>
+
+  <section class="story-section" id="money">
+    <div class="section-title"><span>2</span><h2>The money tells a slightly different story</h2></div>
+    <p class="note">A destination can recover in visitor count but still feel different economically. These charts compare spending and trip volume so the comeback is not judged by arrivals alone.</p>
+    <div class="grid-two">
+      <div class="chart-block">
+        <h3>Spend by traveller type</h3>
+        <p class="why-care"><strong>Why this matters:</strong> domestic overnight travel brings a large amount of money, but international spending is important because it brings external money into Australia.</p>
+        <p>Use the slider to hide lower-growth categories. Bars show spending size, while colour shows growth compared with the previous year.</p>
+        <div id="vis3" class="chart"></div>
+        <p class="chart-source"><strong>Reference:</strong> Tourism Research Australia, International and National Visitor Survey summary tables.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Trips compared with spending</h3>
+        <p class="why-care"><strong>Why this matters:</strong> more trips do not always mean proportionally more spend. This helps compare “busy” tourism with “valuable” tourism.</p>
+        <p>Use the spend slider or click the legend to focus on one traveller type.</p>
+        <div id="vis7" class="chart"></div>
+        <p class="chart-source"><strong>Reference:</strong> Tourism Research Australia visitor trips, nights and spend indicators.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section" id="seasonality">
+    <div class="section-title"><span>3</span><h2>Seasonality still shapes tourism</h2></div>
+    <p class="note">Tourism is not evenly spread across the year. The heatmap makes seasonal rhythm visible without forcing the reader to compare many separate line charts.</p>
+    <div class="chart-block">
+      <h3>Monthly visitor seasonality</h3>
+      <p class="why-care"><strong>Why this matters:</strong> a recovery month can look strong or weak partly because of the time of year. This chart separates the comeback from normal seasonal peaks.</p>
+      <p>Change the year to compare recent months. Hover for the monthly visitor count.</p>
+      <div id="vis4" class="chart"></div>
+      <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics monthly short-term visitor arrival data, reshaped into month-by-year format.</p>
+    </div>
+  </section>
+
+  <section class="story-section" id="gateways">
+    <div class="section-title"><span>4</span><h2>Most visitors still pass through a few big gateways</h2></div>
+    <p class="note">The recovery is also spatial. A real map matters here because Australia’s tourism entry points are concentrated around major coastal capital-city airports.</p>
+    <div class="chart-block">
+      <h3>Major airport gateways</h3>
+      <p class="why-care"><strong>Why this matters:</strong> tourism pressure is not evenly spread across the country. The biggest airport bubbles show where international recovery is most visible first.</p>
+      <p>Bubble size represents total passengers. Colour shows international passenger volume. Use the slider to remove smaller airports and hover for exact details.</p>
+      <div id="vis5" class="chart mapchart"></div>
+      <p class="chart-source"><strong>Reference:</strong> Bureau of Infrastructure and Transport Research Economics airport traffic data; Natural Earth/FIT3179 TopoJSON basemap used for the geographic layer.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Domestic and international airport traffic</h3>
+      <p class="why-care"><strong>Why this matters:</strong> airports can look recovered domestically while still rebuilding internationally. The gap between dots shows which airports depend more on international travel.</p>
+      <p>Use the control to switch between all airports and major gateways.</p>
+      <div id="vis6" class="chart"></div>
+      <p class="chart-source"><strong>Reference:</strong> Bureau of Infrastructure and Transport Research Economics airport traffic by airport and movement type.</p>
+    </div>
+  </section>
+
+  <section class="story-section" id="countries">
+    <div class="section-title"><span>5</span><h2>The countries behind the comeback are changing</h2></div>
+    <p class="note">The overall total hides changes in source markets. The following idioms compare who is coming back, who is lagging, and what that means for Victoria.</p>
+    <div class="grid-two">
+      <div class="chart-block">
+        <h3>Top source countries, March 2019 vs March 2026</h3>
+        <p class="why-care"><strong>Why this matters:</strong> recovery depends on which countries return. Some markets can pull the total up while others still sit below 2019.</p>
+        <p>Click a country to focus its before-and-after bars. Double-click to reset.</p>
+        <div id="vis8" class="chart"></div>
+        <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics source-country arrivals, March 2019 and March 2026.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Where visitors planned to stay</h3>
+        <p class="why-care"><strong>Why this matters:</strong> arrivals are national, but tourism impacts are local. This shows which states receive the visitors after they arrive.</p>
+        <p>Tick the box to switch from raw arrivals to growth.</p>
+        <div id="vis9" class="chart"></div>
+        <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics intended state/territory of stay, March 2026.</p>
+      </div>
+    </div>
+    <div class="chart-block">
+      <h3>Victoria's visitor mix</h3>
+      <p class="why-care"><strong>Why this matters:</strong> because this story is made from Victoria, this compact view shows which source markets matter locally, not just nationally.</p>
+      <div id="vis10" class="chart smallchart"></div>
+      <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics Victoria source-country arrival shares, March 2026.</p>
+    </div>
+  </section>
+
+  <section class="story-section" id="ending">
+    <div class="section-title"><span>6</span><h2>So, is tourism really back?</h2></div>
+    <p class="note">The ending is mixed: some parts of tourism are near normal, some are above old levels, and some are still behind. The final idioms make that unevenness obvious.</p>
+    <div class="grid-two">
+      <div class="chart-block">
+        <h3>Which source countries recovered the most?</h3>
+        <p class="why-care"><strong>Why this matters:</strong> this chart turns recovery into a simple ranking. It shows which markets are carrying the comeback and which are still rebuilding.</p>
+        <p>The dotted line is the old 2019 level. Use the controls to focus on stronger recovery markets.</p>
+        <div id="vis11" class="chart"></div>
+        <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics source-country arrivals compared with 2019 baseline.</p>
+      </div>
+      <div class="chart-block">
+        <h3>State stays: March 2019 vs March 2026</h3>
+        <p class="why-care"><strong>Why this matters:</strong> the national comeback does not land equally in every state. This slope chart shows which places gained or lost share compared with 2019.</p>
+        <p>Click a state in the legend to isolate its line and compare before/after recovery more clearly.</p>
+        <div id="vis12" class="chart"></div>
+        <p class="chart-source"><strong>Reference:</strong> Australian Bureau of Statistics intended state/territory of stay, March 2019 and March 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Author:</strong> Muhammad Haziq · <strong>Date:</strong> May 2026<br>
+    <strong>Data sources:</strong> Australian Bureau of Statistics, Tourism Research Australia, Bureau of Infrastructure and Transport Research Economics, Natural Earth/FIT3179 TopoJSON basemap. Data has been reduced and reshaped so the page loads quickly. Header image added by the author; replace <code>images/header.jpg</code> to use a different picture. Generative AI was used to help draft text, structure the webpage, and refine Vega-Lite code; the final topic, editing, checks and submission decisions are my own.
+  </footer>
+</main>
+<script src="js_main.js"></script>
+</body>
+</html>

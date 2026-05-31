@@ -1,0 +1,411 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Real Vega-Lite proportional symbol map using a TopoJSON basemap and airport circles.",
+  "width": 720,
+  "height": 460,
+  "background": "transparent",
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
+    ],
+    "scale": 720
+  },
+  "params": [
+    {
+      "name": "minPassengers",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 45,
+        "step": 5,
+        "name": "Hide airports below total passengers (m): "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "sphere": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dff7ff",
+        "stroke": null
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.NAME == 'Australia'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#efe2cf",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "airport": "Sydney Airport",
+            "city": "Sydney",
+            "state": "NSW",
+            "iata": "SYD",
+            "latitude": -33.9399,
+            "longitude": 151.1753,
+            "total_passengers_million": 41.845862,
+            "domestic_million": 25.094541,
+            "international_million": 16.751321
+          },
+          {
+            "airport": "Melbourne Airport",
+            "city": "Melbourne",
+            "state": "VIC",
+            "iata": "MEL",
+            "latitude": -37.669,
+            "longitude": 144.841,
+            "total_passengers_million": 35.962734,
+            "domestic_million": 23.998868,
+            "international_million": 11.963866
+          },
+          {
+            "airport": "Brisbane Airport",
+            "city": "Brisbane",
+            "state": "QLD",
+            "iata": "BNE",
+            "latitude": -27.3842,
+            "longitude": 153.1175,
+            "total_passengers_million": 23.826691,
+            "domestic_million": 17.32263,
+            "international_million": 6.504061
+          },
+          {
+            "airport": "Perth Airport",
+            "city": "Perth",
+            "state": "WA",
+            "iata": "PER",
+            "latitude": -31.9403,
+            "longitude": 115.9672,
+            "total_passengers_million": 14.200502,
+            "domestic_million": 9.070312,
+            "international_million": 5.13019
+          },
+          {
+            "airport": "Adelaide Airport",
+            "city": "Adelaide",
+            "state": "SA",
+            "iata": "ADL",
+            "latitude": -34.945,
+            "longitude": 138.5306,
+            "total_passengers_million": 8.413777,
+            "domestic_million": 7.384087,
+            "international_million": 1.02969
+          },
+          {
+            "airport": "Gold Coast Airport",
+            "city": "Gold Coast",
+            "state": "QLD",
+            "iata": "OOL",
+            "latitude": -28.1644,
+            "longitude": 153.5047,
+            "total_passengers_million": 5.99828,
+            "domestic_million": 5.73401,
+            "international_million": 0.62427
+          },
+          {
+            "airport": "Cairns Airport",
+            "city": "Cairns",
+            "state": "QLD",
+            "iata": "CNS",
+            "latitude": -16.8858,
+            "longitude": 145.7553,
+            "total_passengers_million": 4.707476,
+            "domestic_million": 4.042523,
+            "international_million": 0.664953
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.total_passengers_million >= minPassengers"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.86,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "total_passengers_million",
+          "type": "quantitative",
+          "title": "Total passengers (m)",
+          "scale": {
+            "domain": [
+              0,
+              45
+            ],
+            "range": [
+              80,
+              1800
+            ]
+          },
+          "legend": {
+            "orient": "right"
+          }
+        },
+        "color": {
+          "field": "international_million",
+          "type": "quantitative",
+          "title": "International passengers (m)",
+          "scale": {
+            "range": [
+              "#ffe8a3",
+              "#f77f00",
+              "#e85d75"
+            ]
+          },
+          "legend": {
+            "orient": "right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "airport",
+            "type": "nominal",
+            "title": "Airport"
+          },
+          {
+            "field": "city",
+            "type": "nominal",
+            "title": "City"
+          },
+          {
+            "field": "iata",
+            "type": "nominal",
+            "title": "Code"
+          },
+          {
+            "field": "total_passengers_million",
+            "type": "quantitative",
+            "title": "Total passengers (m)",
+            "format": ".1f"
+          },
+          {
+            "field": "domestic_million",
+            "type": "quantitative",
+            "title": "Domestic (m)",
+            "format": ".1f"
+          },
+          {
+            "field": "international_million",
+            "type": "quantitative",
+            "title": "International (m)",
+            "format": ".1f"
+          }
+        ],
+        "opacity": {
+          "value": 0.88
+        },
+        "strokeWidth": {
+          "value": 0.88
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "airport": "Sydney Airport",
+            "city": "Sydney",
+            "state": "NSW",
+            "iata": "SYD",
+            "latitude": -33.9399,
+            "longitude": 151.1753,
+            "total_passengers_million": 41.845862,
+            "domestic_million": 25.094541,
+            "international_million": 16.751321
+          },
+          {
+            "airport": "Melbourne Airport",
+            "city": "Melbourne",
+            "state": "VIC",
+            "iata": "MEL",
+            "latitude": -37.669,
+            "longitude": 144.841,
+            "total_passengers_million": 35.962734,
+            "domestic_million": 23.998868,
+            "international_million": 11.963866
+          },
+          {
+            "airport": "Brisbane Airport",
+            "city": "Brisbane",
+            "state": "QLD",
+            "iata": "BNE",
+            "latitude": -27.3842,
+            "longitude": 153.1175,
+            "total_passengers_million": 23.826691,
+            "domestic_million": 17.32263,
+            "international_million": 6.504061
+          },
+          {
+            "airport": "Perth Airport",
+            "city": "Perth",
+            "state": "WA",
+            "iata": "PER",
+            "latitude": -31.9403,
+            "longitude": 115.9672,
+            "total_passengers_million": 14.200502,
+            "domestic_million": 9.070312,
+            "international_million": 5.13019
+          },
+          {
+            "airport": "Adelaide Airport",
+            "city": "Adelaide",
+            "state": "SA",
+            "iata": "ADL",
+            "latitude": -34.945,
+            "longitude": 138.5306,
+            "total_passengers_million": 8.413777,
+            "domestic_million": 7.384087,
+            "international_million": 1.02969
+          },
+          {
+            "airport": "Gold Coast Airport",
+            "city": "Gold Coast",
+            "state": "QLD",
+            "iata": "OOL",
+            "latitude": -28.1644,
+            "longitude": 153.5047,
+            "total_passengers_million": 5.99828,
+            "domestic_million": 5.73401,
+            "international_million": 0.62427
+          },
+          {
+            "airport": "Cairns Airport",
+            "city": "Cairns",
+            "state": "QLD",
+            "iata": "CNS",
+            "latitude": -16.8858,
+            "longitude": 145.7553,
+            "total_passengers_million": 4.707476,
+            "domestic_million": 4.042523,
+            "international_million": 0.664953
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.total_passengers_million >= minPassengers"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -14,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#14213d"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "iata",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 0.88
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Major airport gateways on a real map",
+    "subtitle": "TopoJSON basemap + latitude/longitude airport bubbles. Use the slider to hide smaller airports and hover for details.",
+    "anchor": "start"
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "legend": {
+      "labelColor": "#49535b",
+      "titleColor": "#273444",
+      "orient": "right",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "symbolSize": 120,
+      "padding": 6
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "interactivity": "Slider filters airports by passenger volume; hover shows airport passenger details."
+  }
+}

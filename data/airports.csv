@@ -1,0 +1,8 @@
+airport,city,state,iata,latitude,longitude,total_passengers_million,domestic_million,international_million
+Sydney Airport,Sydney,NSW,SYD,-33.9399,151.1753,41.845862,25.094541,16.751321
+Melbourne Airport,Melbourne,VIC,MEL,-37.6690,144.8410,35.962734,23.998868,11.963866
+Brisbane Airport,Brisbane,QLD,BNE,-27.3842,153.1175,23.826691,17.322630,6.504061
+Perth Airport,Perth,WA,PER,-31.9403,115.9672,14.200502,9.070312,5.130190
+Adelaide Airport,Adelaide,SA,ADL,-34.9450,138.5306,8.413777,7.384087,1.029690
+Gold Coast Airport,Gold Coast,QLD,OOL,-28.1644,153.5047,5.998280,5.734010,0.624270
+Cairns Airport,Cairns,QLD,CNS,-16.8858,145.7553,4.707476,4.042523,0.664953

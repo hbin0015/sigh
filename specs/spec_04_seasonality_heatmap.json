@@ -1,0 +1,155 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap of monthly short-term visitors.",
+  "width": "container",
+  "height": 240,
+  "background": "transparent",
+  "data": {
+    "url": "data/monthly_visitors.csv"
+  },
+  "params": [
+    {
+      "name": "yr",
+      "value": 2025,
+      "bind": {
+        "input": "select",
+        "options": [
+          2024,
+          2025,
+          2026
+        ],
+        "name": "Choose year "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.year == yr"
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "title": "Month",
+      "axis": {
+        "labelAngle": -20,
+        "labelLimit": 110
+      }
+    },
+    "y": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {}
+    },
+    "color": {
+      "field": "visitors_000",
+      "type": "quantitative",
+      "title": "Visitors ('000)",
+      "scale": {
+        "scheme": "orangered"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "month"
+      },
+      {
+        "field": "year"
+      },
+      {
+        "field": "visitors_000",
+        "title": "Visitors ('000)"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "labelPadding": 6,
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#efd6b7",
+      "gridOpacity": 0.7,
+      "gridWidth": 1,
+      "domain": false,
+      "tickColor": "#d8b98d",
+      "tickSize": 4
+    },
+    "axisX": {
+      "labelAngle": 0
+    },
+    "axisY": {
+      "grid": false
+    },
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Arial",
+      "titleFontSize": 12,
+      "titleColor": "#273444",
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#49535b",
+      "symbolSize": 120,
+      "symbolStrokeWidth": 1.2,
+      "padding": 6
+    },
+    "title": {
+      "font": "Georgia",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "color": "#14213d",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5d6470",
+      "anchor": "start"
+    },
+    "range": {
+      "category": [
+        "#0077b6",
+        "#f77f00",
+        "#00a896",
+        "#e85d75",
+        "#9b5de5",
+        "#fcbf49",
+        "#2ec4b6",
+        "#ff595e",
+        "#1982c4",
+        "#8ac926"
+      ]
+    }
+  },
+  "usermeta": {
+    "style_note": "Restyled to match a warmer travel-guide page: soft paper background, muted axes, lighter gridlines, rounded marks, and consistent ocean/rust/sage palette.",
+    "interactivity": "Use the year dropdown to compare seasonal patterns. Hover cells for month-level visitor numbers."
+  }
+}
