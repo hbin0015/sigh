@@ -261,21 +261,14 @@ footer {
   .hero { min-height: 520px; padding: 42px 24px 28px; }
 }
 
-.reference-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.reference-list li {
-  padding-left: 2rem;
-  text-indent: -2rem;
-  margin-bottom: 14px;
+.references p {
+  margin: 0 0 16px 0;
+  padding-left: 36px;
+  text-indent: -36px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
-.reference-list a {
-  color: inherit;
-  word-break: break-word;
+.references a {
   overflow-wrap: anywhere;
 }
