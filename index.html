@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[FIT2179] Australia's Tourism </title>
+  <title>[FIT2179] Australia's Tourism Boom</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -14,27 +14,22 @@
   <header class="hero">
     <div class="hero-copy">
       <div class="kicker">Australia tourism recovery · 2019 to 2026</div>
-      <h1>Australia's Tourism Boom/h1>
+      <h1>Australia's Tourism Boom </h1>
       <p class="sub">Australia looks busy again, but is it true? Follow along as I present the relevant data to support this claim! </p>
     </div>
-    <aside class="stat-card">
-      <div class="big-number">FIT2179</div>
-      <strong>Data Visualisation</strong>
-      <p class="note">Muhammad Haziq bin Mohd Shah - 36855588 </p>
-    </aside>
   </header>
 
   <nav class="jump-nav" aria-label="Page sections">
     <a href="#return">The return</a>
     <a href="#money">Money</a>
     <a href="#seasonality">Seasonality</a>
-    <a href="#gateways">Gateways</a>
+    <a href="#gateways">State Destinations</a>
     <a href="#countries">Countries</a>
     <a href="#ending">Is it back?</a>
   </nav>
 
   <section class="story-section intro-card">
-    <p><strong>Question:</strong> when people say tourism is “back”, what is the benchmark? The amount of people coming? The amount of money flowing? The number of flights landing? </p>
+    <p>When people say tourism is “back”, what is the benchmark? The amount of people coming? The amount of money flowing? Or the number of flights landing? </p>
   </section>
 
   <section class="story-section" id="return">
@@ -51,6 +46,7 @@
     <div class="chart-block">
       <h3>Arrivals and departures moved together again</h3>
       <p class="why-care"><strong>Why this matters:</strong> As the travel ban lifts, people started to gradually come to Australia. This graph shows the number of overseas arrivals and departures in Australia</p>
+      <div id="vis2" class="chart"></div>
       <p class="chart-source"><strong> Source: </strong> Australian Bureau of Statistics. (2026). </p>
     </div>
   </section>
@@ -102,29 +98,26 @@
   </section>
 
   <section class="story-section" id="countries">
-    <div class="section-title"><span>5</span><h2>The countries behind the comeback are changing</h2></div>
-    <p class="note">The overall total hides changes in source markets. The following idioms compare who is coming back, who is lagging, and what that means for Victoria.</p>
+    <div class="section-title"><span>5</span><h2>The countries behind the comeback</h2></div>
     <div class="grid-two">
       <div class="chart-block">
-        <h3>Top source countries, March 2019 vs March 2026</h3>
-        <p class="why-care"><strong>Why this matters:</strong> recovery depends on which countries return. Some markets can pull the total up while others still sit below 2019.</p>
-        <p>Click a country to focus its before-and-after bars. Double-click to reset.</p>
+        <h3>Top countries, March 2019 vs March 2026</h3>
+        <p class="why-care"><strong>Why this matters:</strong> This idiom shows from which country does the top visitors come from.</p>
         <div id="vis8" class="chart"></div>
-        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics source-country arrivals, March 2019 and March 2026.</p>
+        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics (2026)</p>
       </div>
       <div class="chart-block">
         <h3>Where visitors planned to stay</h3>
-        <p class="why-care"><strong>Why this matters:</strong> arrivals are national, but tourism impacts are local. This shows which states receive the visitors after they arrive.</p>
-        <p>Tick the box to switch from raw arrivals to growth.</p>
+        <p class="why-care"><strong>Why this matters:</strong> This chart shows which states receive the visitors after they arrive in Australia.</p>
+
         <div id="vis9" class="chart"></div>
-        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics intended state/territory of stay, March 2026.</p>
+        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics (2026)</p>
       </div>
     </div>
     <div class="chart-block">
-      <h3>Victoria's visitor mix</h3>
-      <p class="why-care"><strong>Why this matters:</strong> because this story is made from Victoria, this compact view shows which source markets matter locally, not just nationally.</p>
+      <h3>Victoria's Visitor Highlight (as of March 2026)</h3>
       <div id="vis10" class="chart smallchart"></div>
-      <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics Victoria source-country arrival shares, March 2026.</p>
+      <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics Victoria (2026)</p>
     </div>
   </section>
 
@@ -134,28 +127,32 @@
     <div class="grid-two">
       <div class="chart-block">
         <h3>Which source countries recovered the most?</h3>
-        <p class="why-care"><strong>Why this matters:</strong> this chart turns recovery into a simple ranking. It shows which markets are carrying the comeback and which are still rebuilding.</p>
+        <p class="why-care"><strong>Why this matters:</strong> This chart turns recovery into a simple ranking. It shows which markets are carrying the comeback and which are still rebuilding.</p>
         <p>The dotted line is the old 2019 level. Use the controls to focus on stronger recovery markets.</p>
         <div id="vis11" class="chart"></div>
-        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics source-country arrivals compared with 2019 baseline.</p>
+        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics (2026)</p>
       </div>
       <div class="chart-block">
         <h3>State stays: March 2019 vs March 2026</h3>
-        <p class="why-care"><strong>Why this matters:</strong> the national comeback does not land equally in every state. This slope chart shows which places gained or lost share compared with 2019.</p>
+        <p class="why-care"><strong>Why this matters:</strong> The national comeback does not land equally in every state. This slope chart shows which places gained or lost share compared with 2019.</p>
         <p>Click a state in the legend to isolate its line and compare before/after recovery more clearly.</p>
         <div id="vis12" class="chart"></div>
-        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics intended state/territory of stay, March 2019 and March 2026.</p>
+        <p class="chart-source"><strong>Source: </strong> Australian Bureau of Statistics intended (2026) </p>
       </div>
     </div>
   </section>
 
   <footer>
     <strong>References</strong> <br>
-Australian Bureau of Statistics. (2026). Overseas arrivals and departures, Australia, March 2026. https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-and-departures-australia/latest-release
-Bureau of Infrastructure and Transport Research Economics. (2026). Airport traffic data. Australian Government Department of Infrastructure, Transport, Regional Development, Communications and the Arts. https://www.bitre.gov.au/publications/ongoing/airport_traffic_data
+Australian Bureau of Statistics. (2026). Overseas arrivals and departures, Australia, March 2026. https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-
+    and-departures-australia/latest-release
+Bureau of Infrastructure and Transport Research Economics. (2026). Airport traffic data. Australian Government Department of Infrastructure, Transport, Regional Development, 
+    Communications and the Arts. https://www.bitre.gov.au/publications/ongoing/airport_traffic_data
 Natural Earth. (n.d.). Natural Earth 1:110m cultural vectors: Admin 0 – Countries. https://www.naturalearthdata.com/downloads/110m-cultural-vectors/
-Tourism Research Australia. (2025). International tourism results: Year ending December 2025. Australian Government Austrade. https://www.tra.gov.au/en/tourism-statistics/international-tourism-results
-Tourism Research Australia. (2025). National Visitor Survey results: Year ending December 2024. Australian Government Austrade. https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-results
+Tourism Research Australia. (2025). International tourism results: Year ending December 2025. Australian Government Austrade. https://www.tra.gov.au/en/tourism-statistics/international
+    -tourism-results
+Tourism Research Australia. (2025). National Visitor Survey results: Year ending December 2024. Australian Government Austrade. https://www.tra.gov.au/en/tourism-statistics/national-
+    visitor-survey-results
 Tourism Australia. (n.d.). Guide to Sydney. https://www.australia.com/en/places/sydney-and-surrounds/guide-to-sydney.html
   </footer>
 </main>
