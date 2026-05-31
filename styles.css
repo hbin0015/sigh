@@ -260,3 +260,35 @@ footer {
   main { padding: 22px 14px 38px; }
   .hero { min-height: 520px; padding: 42px 24px 28px; }
 }
+
+.site-footer {
+  max-width: 1050px;
+  margin: 70px auto 40px auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.site-footer h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.reference-list {
+  list-style-position: outside;
+  padding-left: 1.4rem;
+  margin: 0;
+}
+
+.reference-list li {
+  margin-bottom: 14px;
+  padding-left: 1.2rem;
+}
+
+.reference-list a {
+  color: inherit;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
